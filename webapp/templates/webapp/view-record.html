@@ -1,0 +1,63 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+
+        <div class="card-body">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>   
+
+                {{record.stakeholder_name|upper}}
+    
+                {{record.stakeholder_type}}
+    
+            </strong>
+    
+            <hr> 
+            {% if not is_owner%}
+            <div class="card-header">
+                <b class="text-danger">You do not have rights to edit/delete this record!</b>
+            </div>
+            {% endif %}
+            <hr>
+
+            <p> <strong> ID: </strong> {{record.id}} </p>
+
+            <p> <strong> county: </strong> {{record.county}} </p>
+
+            <p> <strong> functional_area: </strong> {{record.functionalarea}} </p>
+
+            <p> <strong> stakeholder_role: </strong> {{record.rolename}} </p>
+            <p> <strong> hiv: </strong> {{record.hiv}} </p>
+            <p> <strong> malaria: </strong> {{record.malaria}} </p>
+            <p> <strong> fp: </strong> {{record.fp}} </p>
+            <p> <strong> mnch: </strong> {{record.mnch}} </p>
+            <p> <strong> emms: </strong> {{record.emms}} </p>
+            <p> <strong> contact_email: </strong> {{record.contact_email}} </p>
+            <p> <strong> notes: </strong> {{record.notes}} </p>
+            <p> <strong> activity_reference: </strong> {{record.activity_reference}} </p>
+            <p> <strong> Creation date: </strong> {{record.creation_date}} </p>
+
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    {% if is_owner %}
+    &nbsp;
+ 
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i> </a>
+   
+    &nbsp;
+    
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i> </a>
+    {% endif %}
+
+{% endblock %}

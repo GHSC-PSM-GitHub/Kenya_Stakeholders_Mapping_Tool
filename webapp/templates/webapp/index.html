@@ -1,0 +1,38 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+<script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <body>
+
+        <br>
+        <br>
+
+        <div class="text-center">
+
+            <h3> Stakeholders Mapping Tool! </h3>
+
+            <br>
+
+            <h5> Keeping track of stakeholders in supply chain management! </h5>
+
+            <hr>
+            <br>
+
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+
+            <hr>
+            <br>
+            
+            <!-- <h5>My Implementation</h5>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form1.as_p}}
+            </form> -->
+
+        </div>
+
+    </body>        
+
+
+{% endblock %}

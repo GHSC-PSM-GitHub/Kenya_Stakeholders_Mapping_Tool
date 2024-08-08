@@ -1,0 +1,194 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<body>
+
+    <div class="container bg-light shadow-md p-5 form-layout">
+
+        <h3> Update record </h3>
+
+        <h6> Update your record down below. </h6>
+
+        <hr>
+        <br>
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            {{form.stakeholder_name|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.physical_location|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.Primary_contact_tel|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.year_of_registration|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.partner_category|as_crispy_field}}
+               
+                <br>
+                <hr>
+                {{form.stakeholder_type|as_crispy_field}}
+
+                <br>
+                <hr>
+                 
+                 <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+
+<select name="county" class="selectpicker" multiple data-live-search="true" id="county" aria-multiselectable="true" aria-multiline="true">
+  <option>Mombasa</option>
+  <option>Nairobi</option>
+  <option>Kisumu</option>
+</select>
+
+
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+<select class="select_field_class" multiple="multiple" name="county" id="county">
+      <option value="">Enter the option</option>
+      {% for option in options %}
+         <option value="{{ option.id }}">{{ option.name }}</option>
+      {% endfor %}
+</select> -->
+
+<!-- $('.select_field_class').select2( { placeholder: "Select here", maximumSelectionSize: 100  } ); -->
+
+
+
+
+                <br>
+                <hr>
+                {{form.functionalarea|as_crispy_field}}
+
+                <br>
+                <hr>
+                {{form.rolename|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.registration_type|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.entry_level|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.budget|as_crispy_field}}
+                <br>
+                <hr>
+                {{form.partnership_framework|as_crispy_field}}
+
+
+                <br>
+                <!-- <label>HIV</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="hiv" id="inlineRadio1" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="hiv" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div>                 -->
+   
+
+                <br>
+                <!-- <label>Malaria</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="malaria" id="inlineRadio1" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="malaria" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div> -->
+
+
+              
+                <!-- <label>FP</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="fp" id="inlineRadio1" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="fp" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div>                 -->
+
+
+               
+                <!-- <label>MNCH</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="mnch" id="inlineRadio1" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="mnch" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div> -->
+                  <hr>
+               
+
+               
+                <!-- <label>EMMS</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emms" id="inlineRadio1" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emms" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div> -->
+        
+           
+                <hr>
+                {{form.contact_email|as_crispy_field}}
+
+                <br>
+                <hr>
+                {{form.notes|as_crispy_field}}
+
+                <br>
+                <hr>
+                {{form.activity_reference|as_crispy_field}}
+                <hr>
+                
+
+            <br>
+
+            <button type="submit" class="btn btn-info"> 
+                
+                Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+            
+            </button>
+
+            &nbsp; 
+            
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary"> 
+
+                Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+            </a>
+
+
+        </form>
+
+    </div>
+
+    <br>
+
+</body>
+
+
+{% endblock %}

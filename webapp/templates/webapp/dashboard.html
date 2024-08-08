@@ -1,0 +1,83 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />
+  
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script> -->
+
+    <h5> Welcome, {{user}}! 👋 </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+
+        Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr> 
+
+    <table class="table table-hover table-bordered" id="stakeholder">
+
+        <thead class="table-light">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Stakeholder Name </th>
+                <th scope="col"> stakeholder_type  </th>
+                <th scope="col"> county  </th>
+                <th scope="col"> Functional Area  </th>
+                <th scope="col"> Role  </th>
+                <th scope="col"> contact_email </th>
+                <th scope="col"> notes </th>
+                <th scope="col"> activity_reference </th>
+                <th scope="col"> Date joined </th>
+                <th scope="col"> View </th>
+                
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}
+
+            {% for record in records %}
+
+            <tr>
+
+                <td> {{record.id}} </td>
+                <td> {{record.stakeholder_name}} </td> 
+                <td> {{record.stakeholder_type}} </td>
+                <td> {{record.county}} </td>
+                <td> {{record.functionalarea}} </td>
+                <td> {{record.rolename}} </td>
+                <td> {{record.contact_email}} </td>
+                <td> {{record.notes}} </td>
+                <td> {{record.activity_reference}} </td>
+                <td> {{record.creation_date}} </td>
+               
+                <td> 
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-success btn-sm" href="{% url 'record' record.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a>
+                        
+                        </div>
+                    </div>
+                     </td>
+                     
+
+            </tr>
+
+            {% endfor %}
+        
+        {% endif %}
+
+
+        </tbody>
+
+
+    </table>
+
+
+{% endblock %}

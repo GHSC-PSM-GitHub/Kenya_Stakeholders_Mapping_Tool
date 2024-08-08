@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/home/auapps/crm/crm/
+    ports:
+      - 8000:8000
+    image: stakeholders_mapping
+    container_name: stakeholders_mapping
+    env_file:
+      - /home/auapps/crm/.env.dev
+    depends_on:
+       - db
+  db:
+    image: postgres:15
+    restart: always
+    ports:
+      - 5440:5432
+    container_name: postgres_stm
+    volumes:
+      - /data/stmdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=stm
+      - POSTGRES_PASSWORD=stm@2024
+      - POSTGRES_DB=stm
+
+volumes:
+  stm_data:
